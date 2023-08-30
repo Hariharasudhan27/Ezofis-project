@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Query</title>
+    <style>
+        /* CSS to control the width and height of the input box */
+        #queryInput {
+            width: 400px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Your Query</h1>
+    <form action="/submit" method="post"> <!-- Replace "/submit" with the desired form submission URL -->
+        <textarea id="queryInput" placeholder="Type your query here..."></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

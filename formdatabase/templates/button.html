@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Option Page</title>
+    <style>
+        /* Your existing CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to left, violet, blue); /* Use a gradient of violet to blue */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox to center content vertically */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure the content is centered on the entire viewport height */
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="predict"],
+        button {
+            padding: 12px 20px; /* Adjust padding to change the button size */
+            font-size: 16px; /* Adjust font-size to change the button size */
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        input[type="predict"]:hover,
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Colors for the buttons */
+        #showButton {
+            background-color: #3498db;
+        }
+
+        #updateButton {
+            background-color: #e74c3c;
+        }
+
+        #predictButton {
+            background-color: #f39c12;
+        }
+
+        /* Center the buttons */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <h2>By clicking the below three buttons, you can view, update, and predict the values based on user-provided data</h2>
+        
+        <!-- Show Button -->
+        <a href="../product.php"><button type="button" id="showButton">Show</button></a>
+        
+        <!-- Update Button -->
+        <a href="../up.php"><button type="button" id="updateButton">Update</button></a>
+
+        <!-- Predict Button -->
+        <a href="./prdindex.html"><button type="button" id="predictButton">Predict</button></a>
+    </div>
+</body>
+</html>
