@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question to SQL Query</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Question to SQL Query</h1>
+    <form id="queryForm">
+        <label for="questionInput">Enter your question:</label>
+        <input type="text" id="questionInput" name="question" required>
+        <button type="submit">Get Query</button>
+    </form>
+    <div id="queryResult">
+        <!-- Query result will be displayed here -->
+    </div>
+
+    <script>
+        const data = [
+            // Define your data here in the format: { question: "Question text", query: "SQL query" }
+            { question: "What was the maximum temperature on January 1, 2012?", query: "SELECT MAX(temperature) AS max_temperature  FROM weather_data  WHERE date = '2012-01-01;" }
+            // Example: { question: "What is the total sales for last month?", query: "SELECT SUM(sales) FROM sales WHERE date >= '2023-07-01' AND date <= '2023-07-31';" }
+        ];
+
+        const queryForm = document.getElementById('queryForm');
+        const queryResult = document.getElementById('queryResult');
+
+        queryForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const questionInput = document.getElementById('questionInput').value;
+            const matchedData = data.find(item => item.question.toLowerCase() === questionInput.toLowerCase());
+
+            if (matchedData) {
+                queryResult.innerHTML = `<p><strong>SQL Query:</strong><br>${matchedData.query}</p>`;
+            } else {
+                queryResult.innerHTML = `<p>No matching query found for the given question.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

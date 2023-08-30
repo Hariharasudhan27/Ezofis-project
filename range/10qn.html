@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question to SQL Query</title>
+</head>
+<body>
+    <h1>Question to SQL Query Converter</h1>
+    <form id="questionForm">
+        <label for="question">Enter your question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Generate Query</button>
+    </form>
+    <div id="queryOutput" style="margin-top: 20px; display: none;">
+        <h2>Generated SQL Query:</h2>
+        <p id="queryResult"></p>
+    </div>
+
+    <script>
+        document.getElementById("questionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const question = document.getElementById("question").value.trim();
+            if (question === "") return;
+
+            const data = {
+                "Question 1": "SELECT * FROM table_name WHERE column_name = 'value';",
+                "Question 2": "SELECT column1, column2 FROM table_name WHERE condition;",
+                "Question 3": "SELECT * FROM another_table WHERE another_column = 'another_value';",
+                "Question 4": "SELECT COUNT(*) FROM table_name;",
+                "Question 5": "UPDATE table_name SET column1 = 'new_value' WHERE condition;",
+                "Question 6": "DELETE FROM table_name WHERE column_name = 'value';",
+                "Question 7": "SELECT AVG(column_name) FROM table_name WHERE condition;",
+                "Question 8": "SELECT column1, MAX(column2) FROM table_name GROUP BY column1;",
+                "Question 9": "INSERT INTO table_name (column1, column2) VALUES ('value1', 'value2');",
+                "Question 10": "SELECT * FROM table_name ORDER BY column_name ASC;",
+                // Add more question-query pairs as needed
+            };
+
+            const queryResultElement = document.getElementById("queryResult");
+            if (data.hasOwnProperty(question)) {
+                const query = data[question];
+                queryResultElement.textContent = query;
+                document.getElementById("queryOutput").style.display = "block";
+            } else {
+                queryResultElement.textContent = "No matching query found for this question.";
+                document.getElementById("queryOutput").style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

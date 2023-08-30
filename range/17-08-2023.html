@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Query Selector</title>
+</head>
+<body>
+    <h1>SQL Query Selector</h1>
+    
+    <label for="question">Select a question:</label>
+    <select id="question">
+        <option value="" disabled selected>Select a question</option>
+        <option value="Q1">What was the maximum temperature on January 1, 2012?</option>
+        <option value="Q2">How much precipitation was there on March 5, 2012?</option>
+        <!-- Add more question options here -->
+    </select>
+    
+    <h2>SQL Query:</h2>
+    <p id="queryResult">Select a question to see the SQL query.</p>
+    
+    <script>
+        const queries = {
+            Q1: "SELECT MAX(temperature) AS max_temperature  FROM weather_data  WHERE date = '2012-01-01';", // Replace with your SQL query for Question 1
+            Q2: "SELECT precipitation FROM weather_data WHERE date = '2012-03-05';", // Replace with your SQL query for Question 2
+            // Add more queries here
+        };
+        
+        const questionDropdown = document.getElementById('question');
+        const queryResult = document.getElementById('queryResult');
+        
+        questionDropdown.addEventListener('change', function() {
+            const selectedQuestion = this.value;
+            const selectedQuery = queries[selectedQuestion];
+            if (selectedQuery) {
+                queryResult.textContent = selectedQuery;
+            } else {
+                queryResult.textContent = "No query available for the selected question.";
+            }
+        });
+    </script>
+</body>
+</html>
